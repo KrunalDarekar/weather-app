@@ -1,5 +1,6 @@
 import { getCurrentWeather, getForecastWeather } from "./weather-api-calls";
 import { processCurrentWeatherData, processForecastWeatherData } from "./process-data";
+import { displayCurrentWeatherData, displayForecastWeatherData } from "./display-data";
 
 const icon = document.querySelector(".icon-element");
 
@@ -10,6 +11,7 @@ getCurrentWeather("london")
         const requiredCurrentData = processCurrentWeatherData(data);
         console.log(requiredCurrentData);
         icon.src = requiredCurrentData.icon;
+        displayCurrentWeatherData(requiredCurrentData);
     });
 
 getForecastWeather("london")
@@ -17,5 +19,6 @@ getForecastWeather("london")
         console.log(data);
         const requiredForecastData = processForecastWeatherData(data);
         console.log(requiredForecastData);
+        displayForecastWeatherData(requiredForecastData);
     })
 
